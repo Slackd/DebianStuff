@@ -4,3 +4,13 @@
 ## Budhaditya Saha (2014)
 ## 
 
+1. Add user to Sudo Group
+
+usermod -a -G sudo 'username'
+
+2. Update 
+
+apt-get update
+apt-get upgrade -y
+
+3. 
