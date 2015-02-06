@@ -57,7 +57,7 @@ set mousehide                        " Do not show mouse while typing
 set antialias                        " Pretty fonts
 set t_Co=256                         " 256-color palletes
 set background=dark                  " Dark background variation of theme
-set guifont=Andale\ Mono\ 7.5          " Monospaced small font
+set guifont=Andale\ Mono\ 10          " Monospaced small font
 set guioptions-=T                    " TODO
 set guioptions+=c                    " TODO Console messages
 set linespace=0                      " Don't insert any extra pixel lines
