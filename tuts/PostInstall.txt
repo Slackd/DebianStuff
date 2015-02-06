@@ -18,8 +18,7 @@ apt-get upgrade -y
 
 cp -v sources/lists/*.list /etc/apt/sources.list.d/
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 'KEY'
-
-apt-get update
+apt-get update && apt-get upgrade
 
 # Minor set of useful packages #
 
