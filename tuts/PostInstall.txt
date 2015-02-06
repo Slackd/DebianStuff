@@ -64,7 +64,7 @@ nano -w /usr/share/polkit-1/actions/org.freedesktop.udisks2.policy
 # Update Font Scaling
 mkfontscale -b -s -l
 
-# 32Bit Packages
+# 32Bit Packages (Skype & Steam)
 
 dpkg --add-architecture i386 
 
