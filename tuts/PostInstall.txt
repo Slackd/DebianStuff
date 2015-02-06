@@ -1,7 +1,8 @@
 ## Debian Post Install Steps
 ## For Jessie/8
 ## 
-## Budhaditya Saha (2015)
+## Original Author - Abishek Mukherjee (2014)
+## Modified by Budhaditya Saha (2015)
 ## 
 
 # Add user to Sudo Group (from root)
