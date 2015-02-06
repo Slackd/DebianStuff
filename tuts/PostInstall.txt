@@ -1,16 +1,73 @@
 ## Debian Post Install Steps
 ## For Jessie/8
 ## 
-## Budhaditya Saha (2014)
+## Budhaditya Saha (2015)
 ## 
 
-1. Add user to Sudo Group
+# Add user to Sudo Group (from root)
 
 usermod -a -G sudo 'username'
 
-2. Update 
+# Update 
 
 apt-get update
 apt-get upgrade -y
 
-3. 
+# Add list files & import keys
+
+cp -v sources/lists/*.list /etc/apt/sources.list.d/
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 'KEY'
+
+apt-get update
+
+# Minor set of useful packages #
+
+unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract exfat-utils exfat-fuse hfsplus hfsprogs hfsutils android-tools-adb android-tools-fastboot ntfs-3g ssh gpm fontconfig-infinality apt-listbugs browser-plugin-vlc smplayer mplayer i965-va-driver libvdpau-va-gl1 intel-microcode firmware-linux-nonfree fortunes cowsay gimp gimp-data-extras pulseaudio pavucontrol qbittorrent qt4-qtconfig mesa-utils mesa-utils-extra command-not-found compton git-all
+
+# Set of Packages for Web Server
+
+php5-curl php5-gd php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl php5-fpm php5-mysqlnd php5-pgsql php5-xcache mysql-server mysql-client postgresql-client postgresql lighttpd
+
+# Cursor Theme
+
+update-alternatives --display x-cursor-theme 
+update-alternatives --install /usr/share/icons/default/index.theme x-cursor-theme /usr/share/icons/Bluecurve-FC4/cursor.theme 8000
+update-alternatives --install /usr/share/icons/default/index.theme x-cursor-theme /usr/share/icons/Bluecurve-FC6/cursor.theme 6000
+update-alternatives --display x-cursor-theme 
+
+# Infinality
+
+echo "deb http://ppa.launchpad.net/no1wantdthisname/ppa/ubuntu saucy main" | tee /etc/apt/sources.list.d/infinality.list
+echo "deb-src http://ppa.launchpad.net/no1wantdthisname/ppa/ubuntu saucy main" | tee -a /etc/apt/sources.list.d/infinality.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E985B27B
+
+bash /etc/fonts/infinality/infctl.sh setstyle linux
+
+# Clock Localtime sync
+
+sudo hwclock --show
+sudo hwclock --systohc --localtime
+sudo hwclock --localtime
+
+# Systemd tuning
+
+systemd-analyze blame
+systemd-analyze
+systemd-analyze plot
+systemctl enable systemd-readahead-collect.service systemd-readahead-replay.service
+
+# For NTFS Root free mount ::EDIT::
+
+nano -w /usr/share/polkit-1/actions/org.freedesktop.udisks2.policy
+
+# Update Font Scaling
+mkfontscale -b -s -l
+
+# 32Bit Packages
+
+dpkg --add-architecture i386 
+
+
+
+
+
