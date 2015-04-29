@@ -53,7 +53,7 @@ sudo hwclock --localtime
 
 systemd-analyze blame
 systemd-analyze
-systemd-analyze plot
+systemd-analyze plot > plot.svg
 systemctl enable systemd-readahead-collect.service systemd-readahead-replay.service
 
 # For NTFS Root free mount ::EDIT::
@@ -67,7 +67,6 @@ mkfontscale -b -s -l
 
 dpkg --add-architecture i386 
 
-
-
-
+# List Package URL/i's
+sudo apt-get --print-uris --yes install PACKAGE_NAME | grep ^\' | cut -d\' -f2 >mydownload.txt
 
