@@ -1,0 +1,1 @@
+CFLAGS="-march=native -mtune=native -O2 -pipe -msse4.1 -msse4.2 -msse4 -mavx" make-kpkg -j8 kernel_image kernel_headers modules_image

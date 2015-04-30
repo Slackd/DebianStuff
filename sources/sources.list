@@ -17,3 +17,6 @@ deb http://ftp.us.debian.org/debian/ jessie-updates main contrib non-free
 # jessie-backports, previously on backports.debian.org
 deb http://ftp.us.debian.org/debian/ jessie-backports main contrib non-free
 #deb-src http://ftp.us.debian.org/debian/ jessie-backports main
+
+# Deb Multimedia
+deb http://www.deb-multimedia.org jessie main non-free
