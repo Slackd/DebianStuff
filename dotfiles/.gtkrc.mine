@@ -1,0 +1,34 @@
+##################
+#      GTK       #
+##################
+
+include "/home/sam/.themes/Numix Frost/gtk-2.0/gtkrc"
+
+
+##################
+#     FONTS      #
+##################
+
+style "schrift"
+{
+font_name = "Lucida Grande 10"
+}
+widget_class "*" style "schrift"
+gtk-font-name = "Lucida Grande 10"
+
+
+##################
+#     ICONS      #
+##################
+
+gtk-icon-theme-name = "Moka"
+
+# --< cursors >---------------------------------------------------------------
+gtk-cursor-theme-name = "Bluecurve-FC4"
+#gtk-cursor-theme-size = "16"
+
+##################
+#    TOOLBARS    #
+##################
+
+gtk-toolbar-style   = GTK_TOOLBAR_BOTH
