@@ -10,7 +10,11 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-screenfetch
+#if [ -x /usr/games/fortune ]; then
+#    /usr/games/fortune -s     # Makes our day a bit more fun.... :-)
+#fi
+
+fortune -a | fmt -80 -s | cowsay -f tux.cow
 
 # -> calc app
 calc(){ awk "BEGIN{ print $* }" ;}
@@ -37,9 +41,6 @@ shopt -s checkwinsize
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
-
-# set editor default
-export EDITOR="nano"
 
 #Prompt and prompt colors
 # 30m - Black
@@ -94,7 +95,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    export PS1="\[\e[0;33m\]┌─[\[\e[1;31m\u\e[0;33m\]]──[\[\e[0;34m\]${HOSTNAME%%.*}\[\e[0;33m\]]\[\e[0;32m\]:\w$\[\e[0;33m\]\n\[\e[0;33m\]└──\[\e[0;33m\]>>\[\e[0m\]"
+    export PS1='\[\e[01;31m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[00;37m\]\u\[\e[01;37m\]:`[[ $(git status 2> /dev/null | head -n2 | tail -n1) != "# Changes to be committed:" ]] && echo "\[\e[31m\]" || echo "\[\e[33m\]"``[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] || echo "\[\e[32m\]"`$(__git_ps1 "(%s)\[\e[00m\]")\[\e[01;34m\]\w\[\e[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
