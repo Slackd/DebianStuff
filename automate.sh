@@ -104,8 +104,8 @@ apt-get install php5-curl php5-gd php5-imagick php5-imap php5-mcrypt php5-memcac
 apt-get install darktable rawtherapee audacious rhythmbox gjay clamtk pinta kde-wallpapers gnome-backgrounds mate-backgrounds-y
 
 # Add user groups
-adduser srimoyee
+adduser user
 for name in {cdrom,floppy,audio,dip,src,video,plugdev,netdev,lpadmin,scanner,sudo,wireshark}
 do 
-  adduser srimoyee "$name"
+  adduser user "$name"
 done
